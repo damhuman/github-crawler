@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
 from urllib.parse import urljoin
 from enum import Enum
-
+import concurrent.futures
 logger = logging.getLogger(__name__)
 
 class SearchType(Enum):
@@ -103,12 +103,22 @@ class GitHubCrawler:
         results = self._parse_results(response.text)
         
         if self.search_type == SearchType.REPOSITORIES and self.include_extra_info:
-            for result in results:
-                extra_info = self._get_repository_extra_info(result["url"])
-                if extra_info:
-                    result["extra"] = extra_info
+            results = self._include_extra_info(results)
         return results
     
+    def _include_extra_info(self, results: List[Dict[str, Any]]) -> None:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            future_to_url = {executor.submit(self._get_repository_extra_info, result["url"]): result 
+                            for result in results}
+            for future in concurrent.futures.as_completed(future_to_url):
+                result = future_to_url[future]
+                try:
+                    extra_info = future.result()
+                    if extra_info:
+                        result["extra"] = extra_info
+                except Exception as exc:
+                    logger.error(f"Error processing {result['url']}: {exc}")
+        return results
         
     def _parse_results(self, html: str) -> List[Dict[str, Any]]:
         logger.info(f"Parsing results of {self.search_type.value} search")
@@ -131,6 +141,7 @@ class GitHubCrawler:
     
     def _get_repository_extra_info(self, repo_url: str) -> Dict[str, Any]:
         try:
+            owner = repo_url.split('/')[-2]
             logger.info(f"Getting extra info for {repo_url}")
             response = self._make_request(repo_url)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -139,16 +150,16 @@ class GitHubCrawler:
             languages = layout_sidebar.find_all('li', class_='d-inline')
             for language in languages:
                 spans = language.find_all('span')
-                lang, percentage = spans[0].text, spans[1].text
+                lang, percentage = spans[-2].text, spans[-1].text
                 language_stats[lang] = float(percentage.strip('%'))
             
             return {
-                "owner": repo_url.split('/')[-2],
+                "owner": owner,
                 "language_stats": language_stats
             }
         except Exception as e:
             logger.error(f"Error getting extra info for {repo_url}: {str(e)}")
             return {
-                "owner": "",
+                "owner": owner,
                 "language_stats": {}
             }

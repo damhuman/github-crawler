@@ -1,9 +1,9 @@
 {
     "keywords": [
-        "openstack",
-        "nova",
+        "drf",
+        "python",
         "css"
     ],
     "proxies": [],
-    "type": "issues"
+    "type": "repositories"
   }

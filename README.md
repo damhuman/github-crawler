@@ -38,6 +38,10 @@ The crawler supports the following options:
 - `--output_file`: Specify the output file path (default: "data/results.json")
 - `--extra_info`: Include extra information in the output (default: False)
 
+```bash
+python main.py data/input.json --output_file data/results.json --extra_info
+```
+
 Example input JSON file:
 
 ```json

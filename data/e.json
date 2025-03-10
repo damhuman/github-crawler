@@ -1,0 +1,132 @@
+{
+  "keywords": [
+    "drf",
+    "python",
+    "css"
+  ],
+  "timestamp": "2025-03-10 13:26:16",
+  "search_type": "repositories",
+  "results": [
+    {
+      "url": "https://github.com/AI-14/chronicles",
+      "extra": {
+        "owner": "AI-14",
+        "language_stats": {
+          "TypeScript": 62.7,
+          "Python": 34.3,
+          "HTML": 1.2,
+          "CSS": 0.7,
+          "Makefile": 0.5,
+          "JavaScript": 0.4,
+          "Dockerfile": 0.2
+        }
+      }
+    },
+    {
+      "url": "https://github.com/shyamkumaryadav/ePustakalay",
+      "extra": {
+        "owner": "shyamkumaryadav",
+        "language_stats": {
+          "HTML": 87.0,
+          "Python": 9.2,
+          "Vue": 1.9,
+          "JavaScript": 1.7,
+          "Shell": 0.2
+        }
+      }
+    },
+    {
+      "url": "https://github.com/DmBand/polyclinic",
+      "extra": {
+        "owner": "DmBand",
+        "language_stats": {
+          "Python": 59.1,
+          "CSS": 22.0,
+          "HTML": 13.9,
+          "JavaScript": 4.8,
+          "Shell": 0.2
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Prachi-Taikar/Notes-App-using-Django-React",
+      "extra": {
+        "owner": "Prachi-Taikar",
+        "language_stats": {
+          "Python": 47.3,
+          "JavaScript": 26.3,
+          "CSS": 18.4,
+          "HTML": 8.0
+        }
+      }
+    },
+    {
+      "url": "https://github.com/RashidBhatti313/Django-Project-Management-",
+      "extra": {
+        "owner": "RashidBhatti313",
+        "language_stats": {
+          "Python": 100.0
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Qbason/PortfolioDjangoDRFReactJs",
+      "extra": {
+        "owner": "Qbason",
+        "language_stats": {
+          "JavaScript": 54.6,
+          "Python": 21.7,
+          "HTML": 17.2,
+          "Dockerfile": 5.8,
+          "CSS": 0.7
+        }
+      }
+    },
+    {
+      "url": "https://github.com/bigbossguru/FullStackJobsScraperAPI",
+      "extra": {
+        "owner": "bigbossguru",
+        "language_stats": {
+          "Python": 70.7,
+          "HTML": 26.7,
+          "CSS": 1.9,
+          "Other": 0.7
+        }
+      }
+    },
+    {
+      "url": "https://github.com/siddharth756/BankSystemAPI-DRF",
+      "extra": {
+        "owner": "siddharth756",
+        "language_stats": {
+          "JavaScript": 46.6,
+          "CSS": 45.7,
+          "Python": 7.6,
+          "HTML": 0.1
+        }
+      }
+    },
+    {
+      "url": "https://github.com/SergeyChA/ArticlesSite",
+      "extra": {
+        "owner": "SergeyChA",
+        "language_stats": {
+          "Python": 60.2,
+          "HTML": 39.8
+        }
+      }
+    },
+    {
+      "url": "https://github.com/APlatko/Site_Portfolio_drf_nuxt",
+      "extra": {
+        "owner": "APlatko",
+        "language_stats": {
+          "Vue": 32.4,
+          "Python": 25.1,
+          "CSS": 21.8,
+          "JavaScript": 20.7
+        }
+      }
+    }
+  ]
+}

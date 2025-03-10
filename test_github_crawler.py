@@ -165,7 +165,7 @@ class TestGitHubCrawler(unittest.TestCase):
         # Test exception handling
         mock_make_request.side_effect = Exception("Error")
         extra_info = self.crawler._get_repository_extra_info(repo_url)
-        self.assertEqual(extra_info["owner"], "")
+        self.assertEqual(extra_info["owner"], "testuser")
         self.assertEqual(extra_info["language_stats"], {})
 
     @patch('github_crawler.GitHubCrawler._search')
