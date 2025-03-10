@@ -6,7 +6,7 @@ Tool for crawling GitHub repositories, issues, and discussions based on keywords
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/github-crawler.git
+   git clone https://github.com/damhuman/github-crawler.git
    cd github-crawler
    ```
 
