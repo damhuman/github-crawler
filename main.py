@@ -5,7 +5,6 @@ from github_crawler import GitHubCrawler, SearchType
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 def validate_input_data(input_data):
     """
     Validates the input data for the GitHub crawler
@@ -15,27 +14,24 @@ def validate_input_data(input_data):
         
     Raises:
         ValueError: If any validation fails
+        
+    Returns:
+        bool: True if validation passes
     """
-    # Check required fields
     required_fields = ['keywords', 'proxies', 'type']
-    for field in required_fields:
-        if field not in input_data:
-            raise ValueError(f"Missing required field: {field}")
+    missing_fields = [field for field in required_fields if field not in input_data]
     
-    # Validate keywords
-    if not isinstance(input_data['keywords'], list):
-        raise ValueError("Keywords must be a list")
-    if not input_data['keywords']:
-        raise ValueError("Keywords list cannot be empty")
+    if missing_fields:
+        raise ValueError(f"Missing required field(s): {', '.join(missing_fields)}")
     
-    # Validate proxies
+    # Validate data types and content
+    if not isinstance(input_data['keywords'], list) or not input_data['keywords']:
+        raise ValueError("Keywords must be a non-empty list")
+    
     if not isinstance(input_data['proxies'], list):
         raise ValueError("Proxies must be a list")
     
-    # Validate search type
-    valid_types = [SearchType.REPOSITORIES.value, 
-                   SearchType.ISSUES.value, 
-                   SearchType.DISCUSSIONS.value]
+    valid_types = [t.value for t in SearchType]
     if input_data['type'] not in valid_types:
         raise ValueError(f"Invalid search type: {input_data['type']}. Must be one of: {', '.join(valid_types)}")
     
