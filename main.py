@@ -11,6 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description='GitHub Crawler')
     parser.add_argument('input_file', help='JSON input file path')
     parser.add_argument('--output_file', help='Output file path', default="data/results.json")
+    parser.add_argument('--extra_info', help='Include extra info', action='store_true')
     args = parser.parse_args()
 
     try:
@@ -19,7 +20,8 @@ def main():
         logger.info(f"Input data: {input_data}")
         crawler = GitHubCrawler(proxies=input_data['proxies'], 
                                 search_type=input_data['type'], 
-                                keywords=input_data['keywords'])
+                                keywords=input_data['keywords'],
+                                include_extra_info=args.extra_info)
         results = crawler.execute_search(args.output_file)
 
         print(json.dumps(results, indent=2))
