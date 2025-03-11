@@ -13,7 +13,7 @@ Tool for crawling GitHub repositories, issues, and discussions based on keywords
 2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. Install dependencies:
@@ -59,7 +59,6 @@ The crawler will save the results in the specified output file. The output forma
 ```json
 {
   "keywords": ["python", "data science"],
-  "timestamp": "2025-03-10 12:55:43",
   "search_type": "repositories",
   "results": [
     {
@@ -82,7 +81,7 @@ The crawler will save the results in the specified output file. The output forma
 To run the tests:
 
 ```bash
-coverage run -m unittest test_github_crawler.py
+coverage coverage run -m unittest discover tests
 coverage report -m
 ```
 

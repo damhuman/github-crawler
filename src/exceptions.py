@@ -1,0 +1,2 @@
+class GitHubCrawlerException(Exception):
+    pass
